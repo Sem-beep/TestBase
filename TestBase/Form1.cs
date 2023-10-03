@@ -109,9 +109,11 @@ namespace TestBase
 
         }
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            
+            Form3 frm3 = new Form3();
+            frm3.ShowDialog();
         }
     }
 }
