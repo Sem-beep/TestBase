@@ -48,13 +48,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.nomenklatureBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.nomenklatureDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.updButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.updButton = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.delButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomenklatureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomenklatureBindingNavigator)).BeginInit();
@@ -212,6 +215,7 @@
             // 
             // nomenklatureDataGridView
             // 
+            this.nomenklatureDataGridView.AllowUserToAddRows = false;
             this.nomenklatureDataGridView.AutoGenerateColumns = false;
             this.nomenklatureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.nomenklatureDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -224,27 +228,6 @@
             this.nomenklatureDataGridView.Size = new System.Drawing.Size(344, 193);
             this.nomenklatureDataGridView.TabIndex = 1;
             this.nomenklatureDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nomenklatureDataGridView_CellContentClick);
-            this.nomenklatureDataGridView.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.NomenklatureDataGridView_UserDeletedRow);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(21, 245);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 43);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // updButton
-            // 
-            this.updButton.Location = new System.Drawing.Point(185, 245);
-            this.updButton.Name = "updButton";
-            this.updButton.Size = new System.Drawing.Size(158, 43);
-            this.updButton.TabIndex = 3;
-            this.updButton.Text = "Update DB";
-            this.updButton.UseVisualStyleBackColor = true;
-            this.updButton.Click += new System.EventHandler(this.updButton_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -265,6 +248,26 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Prices";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(371, 245);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 43);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // updButton
+            // 
+            this.updButton.Location = new System.Drawing.Point(371, 290);
+            this.updButton.Name = "updButton";
+            this.updButton.Size = new System.Drawing.Size(158, 43);
+            this.updButton.TabIndex = 3;
+            this.updButton.Text = "Update DB";
+            this.updButton.UseVisualStyleBackColor = true;
+            this.updButton.Click += new System.EventHandler(this.updButton_Click);
+            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = this.nomenklatureBindingSource;
@@ -277,11 +280,40 @@
             this.listBox1.Size = new System.Drawing.Size(167, 186);
             this.listBox1.TabIndex = 4;
             // 
+            // delButton
+            // 
+            this.delButton.Location = new System.Drawing.Point(142, 301);
+            this.delButton.Name = "delButton";
+            this.delButton.Size = new System.Drawing.Size(61, 21);
+            this.delButton.TabIndex = 5;
+            this.delButton.Text = "Delete";
+            this.delButton.UseVisualStyleBackColor = true;
+            this.delButton.Click += new System.EventHandler(this.delButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 286);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ID удаляемого продукта";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(51, 301);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(51, 20);
+            this.textBox1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 330);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.delButton);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.updButton);
             this.Controls.Add(this.button1);
@@ -329,6 +361,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button delButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
